@@ -28,7 +28,7 @@ const { description, title } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="bg-primary-50 text-primary-950 dark:bg-primary-950 dark:text-primary-200 antialiased transition"
+    class="dark:bg-[#595554] dark:text-primary-200 antialiased transition"
   >
     <Header />
     <main>
@@ -53,13 +53,13 @@ const { description, title } = Astro.props;
               return localStorage.getItem('theme') === 'dark';
             }
             if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              return true;
+              return false;
             }
-            return false;
+            return true;
           })();
         },
 
-        isDark: false,
+        isDark: true,
 
         toggle() {
           this.isDark = !this.isDark;
